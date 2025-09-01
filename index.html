@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>د. حلا حسين - طبيبة أمراض النساء والتوليد</title>
-    <meta name="description" content="د. حلا حسين، استشارية أمراض النساء والتوليد، خبرة 12 عاماً في العناية الصحية للمرأة">
-
+    <title>د. نورا حسين الأحمدي - طبيبة أمراض النساء والتوليد</title>
+    <meta name="description" content="د. نورا حسين الأحمدي، استشارية أمراض النساء والتوليد، خبرة 12 عاماً في العناية الصحية للمرأة">
+    
     <!-- Bootstrap 5 RTL CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -18,14 +18,14 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "د. حلا حسين",
+      "name": "د. نورا حسين الأحمدي",
       "jobTitle": "طبيبة أمراض النساء والتوليد",
       "description": "استشارية أمراض النساء والتوليد مع خبرة 12 عاماً",
       "telephone": "+966501234567",
       "email": "dr.nora@clinic.sa",
       "worksFor": {
         "@type": "MedicalClinic",
-        "name": "عيادة د. حلا حسين",
+        "name": "عيادة د. نورا الأحمدي",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "طريق الملك عبدالعزيز، حي النخيل",
@@ -51,6 +51,8 @@
             --bg-light: #f7fafc;
             --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --card-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --glow-effect: 0 0 20px rgba(102, 126, 234, 0.3);
+            --shimmer-gradient: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
         }
 
         * {
@@ -64,6 +66,51 @@
             line-height: 1.7;
             color: var(--text-dark);
             overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Particles Animation */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.2), transparent);
+            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+            animation: float 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
         }
 
         /* Navigation Styles */
@@ -103,12 +150,29 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--shimmer-gradient);
+            transition: left 0.5s ease;
         }
 
         .btn-gradient-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 7px 25px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 7px 25px rgba(102, 126, 234, 0.6), var(--glow-effect);
             color: white;
+        }
+
+        .btn-gradient-primary:hover::before {
+            left: 100%;
         }
 
         .btn-gradient-secondary {
@@ -120,12 +184,29 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--shimmer-gradient);
+            transition: left 0.5s ease;
         }
 
         .btn-gradient-secondary:hover {
             transform: translateY(-2px);
             box-shadow: 0 7px 25px rgba(245, 87, 108, 0.6);
             color: white;
+        }
+
+        .btn-gradient-secondary:hover::before {
+            left: 100%;
         }
 
         /* Hero Section */
@@ -177,14 +258,21 @@
         }
 
         .hero-image {
-            border-radius: 20px;
+            border-radius: 50%;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
+            width: 400px;
+            height: 400px;
+            max-width: 400px;
+            object-fit: cover;
+            background: var(--bg-light);
+            display: block;
+            margin: 0 auto;
         }
 
-        .hero-image:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--card-hover-shadow);
+        /* Image loading state */
+        .hero-image.loading {
+            background: var(--primary-gradient);
+            opacity: 0.8;
         }
 
         /* Stats Section */
@@ -203,13 +291,31 @@
             border-radius: 20px;
             background: white;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--card-hover-shadow), var(--glow-effect);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
         }
 
         .stat-number {
@@ -258,14 +364,32 @@
             padding: 40px 30px;
             text-align: center;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--card-hover-shadow), var(--glow-effect);
+            border-color: var(--purple-primary);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
         }
 
         .service-icon {
@@ -279,6 +403,32 @@
             margin: 0 auto 20px;
             font-size: 2rem;
             color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: var(--glow-effect);
+        }
+
+        .service-card:hover .service-icon::before {
+            width: 100%;
+            height: 100%;
         }
 
         .service-title {
@@ -324,7 +474,241 @@
             color: white;
         }
 
-        /* Articles Section */
+        /* Video Section Styles */
+        .videos-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--card-hover-shadow), var(--glow-effect);
+        }
+
+        .video-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .video-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .video-play-btn i {
+            margin-right: 3px; /* Adjust play icon position */
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .video-content {
+            padding: 25px;
+        }
+
+        .video-category {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .video-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .video-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .video-views {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .video-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Video Modal Styles */
+        .video-modal .modal-dialog {
+            max-width: 90%;
+        }
+
+        .video-modal .modal-content {
+            background: transparent;
+            border: none;
+        }
+
+        .video-modal .modal-body {
+            padding: 0;
+        }
+
+        .video-player {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Featured Video Styles */
+        .featured-video {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 50px;
+        }
+
+        .featured-video .video-thumbnail {
+            height: 350px;
+            border-radius: 15px;
+        }
+
+        .featured-video .video-play-btn {
+            width: 90px;
+            height: 90px;
+            font-size: 2rem;
+        }
+
+        .featured-video .video-title {
+            font-size: 1.8rem;
+            margin-top: 20px;
+        }
+
+        .featured-video .video-description {
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        /* Video Categories Filter */
+        .video-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--purple-primary);
+            color: var(--purple-primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
         .articles-section {
             background: var(--bg-light);
             padding: 80px 0;
@@ -573,31 +957,138 @@
             100% { transform: scale(1); }
         }
 
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--primary-gradient);
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+
+        /* Enhanced animations for sections */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced floating action button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: var(--secondary-gradient);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 25px rgba(245, 87, 108, 0.4);
+            animation: floatPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes floatPulse {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.05); }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero-image {
+                display: none;
+            }
+            
             .hero-title {
                 font-size: 2.5rem;
             }
-
+            
             .hero-subtitle {
                 font-size: 1.2rem;
             }
-
+            
             .section-title {
                 font-size: 2rem;
             }
-
+            
             .stat-number {
                 font-size: 2.5rem;
             }
-
+            
             .service-card,
             .article-card,
             .testimonial-card,
             .contact-card {
                 margin-bottom: 30px;
             }
-
+            
             .sticky-cta {
                 bottom: 20px;
                 left: 20px;
@@ -611,7 +1102,7 @@
             .hero-title {
                 font-size: 2rem;
             }
-
+            
             .section-title {
                 font-size: 1.8rem;
             }
@@ -619,15 +1110,24 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">د. نورا الأحمدي</div>
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">د. حلا حسين</a>
-
+            <a class="navbar-brand" href="#home">د. نورا الأحمدي</a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -638,6 +1138,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#articles">المقالات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#videos">الفيديوهات</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#testimonials">الآراء</a>
@@ -656,7 +1159,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content">
-                    <h1 class="hero-title">د. حلا حسين</h1>
+                    <h1 class="hero-title">د. نورا حسين الأحمدي</h1>
                     <h2 class="hero-subtitle">طبيبة أمراض النساء والتوليد</h2>
                     <p class="hero-description">
                         خبرة 12 عاماً في تقديم أفضل الرعاية الصحية للمرأة
@@ -673,7 +1176,15 @@
                         </a>
                     </div>
                 </div>
-
+                <div class="col-lg-6 text-center">
+                    <!-- TODO: Replace with actual doctor photo -->
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&h=600&fit=crop&crop=face" 
+                         alt="د. نورا حسين الأحمدي" 
+                         class="hero-image img-fluid" 
+                         style="max-height: 600px; border-radius: 20px;"
+                         loading="eager"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/500x600/667eea/ffffff?text=د.+نورا+الأحمدي';">
+                </div>
             </div>
         </div>
     </section>
@@ -715,7 +1226,7 @@
         <div class="container">
             <h2 class="section-title">خدماتنا المتخصصة</h2>
             <p class="section-subtitle">نقدم مجموعة شاملة من الخدمات الطبية المتقدمة في مجال صحة المرأة</p>
-
+            
             <div class="row g-4">
                 <!-- TODO: Replace with actual services -->
                 <div class="col-lg-4 col-md-6">
@@ -727,7 +1238,7 @@
                         <p class="service-description">متابعة شاملة للحمل الطبيعي وعالي المخاطر باستخدام أحدث أجهزة الموجات فوق الصوتية</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
@@ -737,7 +1248,7 @@
                         <p class="service-description">جراحات طفيفة التدخل لعلاج أكياس المبايض، الأورام الليفية، وانتباذ بطانة الرحم</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
@@ -747,7 +1258,7 @@
                         <p class="service-description">تشخيص وعلاج أسباب تأخر الإنجاب وتقنيات المساعدة على الإنجاب</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
@@ -757,7 +1268,7 @@
                         <p class="service-description">تشخيص وعلاج متلازمة المبيض متعدد الكيسات واضطرابات الدورة الشهرية</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
@@ -767,7 +1278,7 @@
                         <p class="service-description">فحوصات مبكرة للكشف عن سرطان عنق الرحم والثدي والوقاية من الأمراض</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
@@ -789,10 +1300,10 @@
                     <h2 class="section-title text-start">عن الطبيبة</h2>
                     <div class="about-content">
                         <p class="mb-4">
-                            د. حلا حسين هي استشارية أمراض النساء والتوليد مع خبرة تمتد لأكثر من 12 عاماً.
+                            د. نورا حسين الأحمدي هي استشارية أمراض النساء والتوليد مع خبرة تمتد لأكثر من 12 عاماً. 
                             متخصصة في جراحات المناظير، علاج العقم، ومتابعة الحمل عالي المخاطر.
                         </p>
-
+                        
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <h4 class="h5 fw-bold mb-3" style="color: var(--purple-primary);">المؤهلات العلمية:</h4>
@@ -841,9 +1352,9 @@
                 </div>
                 <div class="col-lg-6 text-center">
                     <!-- TODO: Replace with actual doctor photo -->
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop"
-                         alt="د. حلا حسين في العيادة"
-                         class="img-fluid rounded-4 shadow-lg"
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop" 
+                         alt="د. نورا الأحمدي في العيادة" 
+                         class="img-fluid rounded-4 shadow-lg" 
                          style="max-height: 500px;"
                          loading="lazy">
                 </div>
@@ -856,14 +1367,14 @@
         <div class="container">
             <h2 class="section-title">أحدث المقالات الطبية</h2>
             <p class="section-subtitle">مقالات علمية ونصائح طبية مفيدة حول صحة المرأة</p>
-
+            
             <div class="row g-4">
                 <!-- TODO: Replace with dynamic article data -->
                 <div class="col-lg-4 col-md-6">
                     <article class="article-card">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop"
-                             alt="نصائح للحمل الصحي"
-                             class="article-image"
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop" 
+                             alt="نصائح للحمل الصحي" 
+                             class="article-image" 
                              loading="lazy">
                         <div class="article-content">
                             <div class="article-meta">
@@ -878,12 +1389,12 @@
                         </div>
                     </article>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <article class="article-card">
-                        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=400&h=250&fit=crop"
-                             alt="اضطرابات الهرمونات النسائية"
-                             class="article-image"
+                        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=400&h=250&fit=crop" 
+                             alt="اضطرابات الهرمونات النسائية" 
+                             class="article-image" 
                              loading="lazy">
                         <div class="article-content">
                             <div class="article-meta">
@@ -898,12 +1409,12 @@
                         </div>
                     </article>
                 </div>
-
+                
                 <div class="col-lg-4 col-md-6">
                     <article class="article-card">
-                        <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=400&h=250&fit=crop"
-                             alt="أهمية الفحص الوقائي"
-                             class="article-image"
+                        <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=400&h=250&fit=crop" 
+                             alt="أهمية الفحص الوقائي" 
+                             class="article-image" 
                              loading="lazy">
                         <div class="article-content">
                             <div class="article-meta">
@@ -921,9 +1432,9 @@
 
                 <div class="col-lg-4 col-md-6">
                     <article class="article-card">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
-                             alt="التغذية أثناء الحمل"
-                             class="article-image"
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop" 
+                             alt="التغذية أثناء الحمل" 
+                             class="article-image" 
                              loading="lazy">
                         <div class="article-content">
                             <div class="article-meta">
@@ -941,9 +1452,9 @@
 
                 <div class="col-lg-4 col-md-6">
                     <article class="article-card">
-                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=250&fit=crop"
-                             alt="الرياضة وصحة المرأة"
-                             class="article-image"
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=250&fit=crop" 
+                             alt="الرياضة وصحة المرأة" 
+                             class="article-image" 
                              loading="lazy">
                         <div class="article-content">
                             <div class="article-meta">
@@ -961,9 +1472,9 @@
 
                 <div class="col-lg-4 col-md-6">
                     <article class="article-card">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop"
-                             alt="الصحة النفسية للمرأة"
-                             class="article-image"
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop" 
+                             alt="الصحة النفسية للمرأة" 
+                             class="article-image" 
                              loading="lazy">
                         <div class="article-content">
                             <div class="article-meta">
@@ -982,12 +1493,279 @@
         </div>
     </section>
 
+    <!-- Videos Section -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <h2 class="section-title">الفيديوهات التعليمية</h2>
+            <p class="section-subtitle">مقاطع فيديو تعليمية ومفيدة حول صحة المرأة والعناية الطبية</p>
+            
+            <!-- Featured Video -->
+            <div class="featured-video">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="video-thumbnail" data-video-id="ScMzIvxBSi4">
+                            <!-- TODO: Replace with actual video thumbnail -->
+                            <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" 
+                                 alt="مقدمة شاملة عن صحة المرأة" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('ScMzIvxBSi4')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">15:30</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="video-category">فيديو مميز</span>
+                        <h3 class="video-title">مقدمة شاملة عن صحة المرأة</h3>
+                        <p class="video-description">
+                            في هذا الفيديو التعليمي، تتحدث د. نورا عن أهمية العناية بصحة المرأة في مختلف مراحل الحياة، 
+                            وتقدم نصائح قيمة للوقاية من الأمراض والحفاظ على الصحة العامة.
+                        </p>
+                        <div class="video-meta">
+                            <span class="video-views">
+                                <i class="bi bi-eye"></i>
+                                25,000 مشاهدة
+                            </span>
+                            <span class="video-date">
+                                <i class="bi bi-calendar3"></i>
+                                10 سبتمبر 2024
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Filter Categories -->
+            <div class="video-filter">
+                <button class="filter-btn active" onclick="filterVideos('all')">الكل</button>
+                <button class="filter-btn" onclick="filterVideos('educational')">تعليمية</button>
+                <button class="filter-btn" onclick="filterVideos('testimonials')">تجارب المريضات</button>
+                <button class="filter-btn" onclick="filterVideos('procedures')">العمليات</button>
+                <button class="filter-btn" onclick="filterVideos('tips')">نصائح</button>
+            </div>
+            
+            <div class="row g-4" id="videosContainer">
+                <!-- TODO: Replace with dynamic video data -->
+                <div class="col-lg-4 col-md-6 video-item" data-category="educational">
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video-id="TcMBFSGVi1c">
+                            <img src="https://img.youtube.com/vi/TcMBFSGVi1c/maxresdefault.jpg" 
+                                 alt="نصائح للحمل الصحي" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('TcMBFSGVi1c')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">8:45</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">تعليمي</span>
+                            <h3 class="video-title">نصائح للحمل الصحي</h3>
+                            <p class="video-description">
+                                نصائح مهمة للعناية بصحتك وصحة جنينك خلال فترة الحمل
+                            </p>
+                            <div class="video-meta">
+                                <span class="video-views">
+                                    <i class="bi bi-eye"></i>
+                                    12,500
+                                </span>
+                                <span class="video-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    5 سبتمبر 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 video-item" data-category="procedures">
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video-id="9bZkp7q19f0">
+                            <img src="https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg" 
+                                 alt="جراحات المناظير النسائية" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('9bZkp7q19f0')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">12:20</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">عمليات</span>
+                            <h3 class="video-title">جراحات المناظير النسائية</h3>
+                            <p class="video-description">
+                                شرح مفصل عن تقنيات الجراحة بالمنظار وفوائدها
+                            </p>
+                            <div class="video-meta">
+                                <span class="video-views">
+                                    <i class="bi bi-eye"></i>
+                                    8,900
+                                </span>
+                                <span class="video-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    28 أغسطس 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 video-item" data-category="testimonials">
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video-id="kJQP7kiw5Fk">
+                            <img src="https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg" 
+                                 alt="تجربة مريضة - علاج العقم" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('kJQP7kiw5Fk')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">6:15</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">تجارب</span>
+                            <h3 class="video-title">تجربة مريضة - علاج العقم</h3>
+                            <p class="video-description">
+                                قصة نجاح لإحدى المريضات في رحلة علاج تأخر الإنجاب
+                            </p>
+                            <div class="video-meta">
+                                <span class="video-views">
+                                    <i class="bi bi-eye"></i>
+                                    15,200
+                                </span>
+                                <span class="video-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    20 أغسطس 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 video-item" data-category="tips">
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video-id="dONyv-Cwkoo">
+                            <img src="https://img.youtube.com/vi/dONyv-Cwkoo/maxresdefault.jpg" 
+                                 alt="التغذية السليمة للحامل" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('dONyv-Cwkoo')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">10:30</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">نصائح</span>
+                            <h3 class="video-title">التغذية السليمة للحامل</h3>
+                            <p class="video-description">
+                                دليل شامل للنظام الغذائي الصحي خلال فترة الحمل
+                            </p>
+                            <div class="video-meta">
+                                <span class="video-views">
+                                    <i class="bi bi-eye"></i>
+                                    18,700
+                                </span>
+                                <span class="video-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    15 أغسطس 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 video-item" data-category="educational">
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video-id="2lAe1cqCOXo">
+                            <img src="https://img.youtube.com/vi/2lAe1cqCOXo/maxresdefault.jpg" 
+                                 alt="اضطرابات الهرمونات النسائية" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('2lAe1cqCOXo')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">14:15</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">تعليمي</span>
+                            <h3 class="video-title">اضطرابات الهرمونات النسائية</h3>
+                            <p class="video-description">
+                                شرح مبسط لأنواع اضطرابات الهرمونات وطرق علاجها
+                            </p>
+                            <div class="video-meta">
+                                <span class="video-views">
+                                    <i class="bi bi-eye"></i>
+                                    22,400
+                                </span>
+                                <span class="video-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    10 أغسطس 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 video-item" data-category="tips">
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video-id="L_LUpnjgPso">
+                            <img src="https://img.youtube.com/vi/L_LUpnjgPso/maxresdefault.jpg" 
+                                 alt="الصحة النفسية للمرأة" 
+                                 loading="lazy">
+                            <button class="video-play-btn" onclick="openVideoModal('L_LUpnjgPso')">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="video-duration">9:45</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">نصائح</span>
+                            <h3 class="video-title">الصحة النفسية للمرأة</h3>
+                            <p class="video-description">
+                                نصائح للحفاظ على الصحة النفسية والتوازن العاطفي
+                            </p>
+                            <div class="video-meta">
+                                <span class="video-views">
+                                    <i class="bi bi-eye"></i>
+                                    11,800
+                                </span>
+                                <span class="video-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    5 أغسطس 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-gradient-primary btn-lg px-4 py-3" onclick="loadMoreVideos()">
+                    <i class="bi bi-plus-circle ms-2"></i>
+                    عرض المزيد من الفيديوهات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="modal fade video-modal" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" 
+                            data-bs-dismiss="modal" aria-label="إغلاق" style="z-index: 1000;"></button>
+                    <div class="video-player">
+                        <iframe id="videoFrame" src="" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Testimonials Section -->
     <section class="testimonials-section" id="testimonials">
         <div class="container">
             <h2 class="section-title">آراء المريضات</h2>
             <p class="section-subtitle">تجارب حقيقية وقصص نجاح من مريضاتنا الكريمات</p>
-
+            
             <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-inner">
                     <!-- TODO: Replace with actual testimonials -->
@@ -997,7 +1775,7 @@
                                 <div class="testimonial-card">
                                     <i class="bi bi-quote testimonial-quote"></i>
                                     <p class="testimonial-text">
-                                        "د. نورا طبيبة رائعة ومتمكنة جداً. تابعتني طوال فترة الحمل بكل عناية واهتمام.
+                                        "د. نورا طبيبة رائعة ومتمكنة جداً. تابعتني طوال فترة الحمل بكل عناية واهتمام. 
                                         أنصح كل امرأة بزيارتها للحصول على أفضل رعاية طبية."
                                     </p>
                                     <div class="testimonial-author">أم محمد الأحمدي</div>
@@ -1006,14 +1784,14 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="carousel-item">
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="testimonial-card">
                                     <i class="bi bi-quote testimonial-quote"></i>
                                     <p class="testimonial-text">
-                                        "العيادة منظمة والطاقم محترف جداً. د. نورا شرحت لي حالتي بوضوح وأجابت على جميع استفساراتي.
+                                        "العيادة منظمة والطاقم محترف جداً. د. نورا شرحت لي حالتي بوضوح وأجابت على جميع استفساراتي. 
                                         شعرت بالراحة والثقة من اللحظة الأولى."
                                     </p>
                                     <div class="testimonial-author">سارة العتيبي</div>
@@ -1022,14 +1800,14 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="carousel-item">
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="testimonial-card">
                                     <i class="bi bi-quote testimonial-quote"></i>
                                     <p class="testimonial-text">
-                                        "تعاملت مع د. نورا في حالة تأخر إنجاب، وبفضل خبرتها وعلاجها المتطور حملت بعد 8 أشهر.
+                                        "تعاملت مع د. نورا في حالة تأخر إنجاب، وبفضل خبرتها وعلاجها المتطور حملت بعد 8 أشهر. 
                                         الآن أم سعيدة وأشكر الله ثم الدكتورة على كل شيء."
                                     </p>
                                     <div class="testimonial-author">هند الزهراني</div>
@@ -1045,7 +1823,7 @@
                                 <div class="testimonial-card">
                                     <i class="bi bi-quote testimonial-quote"></i>
                                     <p class="testimonial-text">
-                                        "أجريت عملية منظار مع د. نورا وكانت تجربة ممتازة. التعافي كان سريع وبدون مضاعفات.
+                                        "أجريت عملية منظار مع د. نورا وكانت تجربة ممتازة. التعافي كان سريع وبدون مضاعفات. 
                                         مهارتها في الجراحة واضحة جداً."
                                     </p>
                                     <div class="testimonial-author">نوال القحطاني</div>
@@ -1061,7 +1839,7 @@
                                 <div class="testimonial-card">
                                     <i class="bi bi-quote testimonial-quote"></i>
                                     <p class="testimonial-text">
-                                        "د. نورا ساعدتني في علاج اضطراب الهرمونات بطريقة علمية ومدروسة.
+                                        "د. نورا ساعدتني في علاج اضطراب الهرمونات بطريقة علمية ومدروسة. 
                                         الآن صحتي أفضل بكثير وأشعر بتحسن كبير في نوعية حياتي."
                                     </p>
                                     <div class="testimonial-author">ريم المطيري</div>
@@ -1071,7 +1849,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">السابق</span>
@@ -1089,7 +1867,7 @@
         <div class="container">
             <h2 class="section-title text-white">تواصلي معنا</h2>
             <p class="section-subtitle text-white opacity-75">نحن هنا لخدمتك ومساعدتك في رحلتك نحو صحة أفضل</p>
-
+            
             <div class="row g-4 mb-5">
                 <!-- TODO: Replace with actual contact information -->
                 <div class="col-lg-4">
@@ -1105,7 +1883,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4">
                     <div class="contact-card">
                         <div class="contact-icon">
@@ -1128,7 +1906,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4">
                     <div class="contact-card">
                         <div class="contact-icon">
@@ -1156,7 +1934,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="text-center">
                 <h3 class="h4 mb-3 text-white">احجزي موعدك الآن</h3>
                 <p class="text-white opacity-75 mb-4">اختاري الطريقة الأنسب لك للتواصل معنا</p>
@@ -1165,12 +1943,12 @@
                         <i class="bi bi-telephone ms-2"></i>
                         اتصلي للحجز
                     </a>
-                    <a href="https://wa.me/966501234567?text=مرحباً، أرغب في حجز موعد مع د. نورا"
+                    <a href="https://wa.me/966501234567?text=مرحباً، أرغب في حجز موعد مع د. نورا" 
                        class="btn btn-gradient-secondary btn-lg px-4 py-3" target="_blank">
                         <i class="bi bi-whatsapp ms-2"></i>
                         واتساب
                     </a>
-                    <a href="mailto:dr.nora@clinic.sa?subject=حجز موعد&body=مرحباً، أرغب في حجز موعد"
+                    <a href="mailto:dr.nora@clinic.sa?subject=حجز موعد&body=مرحباً، أرغب في حجز موعد" 
                        class="btn btn-outline-light btn-lg px-4 py-3">
                         <i class="bi bi-envelope ms-2"></i>
                         إيميل
@@ -1184,14 +1962,14 @@
     <section class="map-section">
         <div class="map-container">
             <!-- TODO: Replace with actual Google Maps embed -->
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.140947756488!2d46.67215331498168!3d24.697861284092615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzUyLjMiTiA0NsKwNDAnMjMuOCJF!5e0!3m2!1sen!2ssa!4v1629876543210!5m2!1sen!2ssa"
-                width="100%"
-                height="100%"
-                style="border:0;"
-                allowfullscreen=""
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.140947756488!2d46.67215331498168!3d24.697861284092615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzUyLjMiTiA0NsKwNDAnMjMuOCJF!5e0!3m2!1sen!2ssa!4v1629876543210!5m2!1sen!2ssa" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
                 loading="lazy"
-                title="موقع عيادة د. حلا حسين">
+                title="موقع عيادة د. نورا الأحمدي">
             </iframe>
         </div>
     </section>
@@ -1200,9 +1978,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <h4 class="footer-title">د. حلا حسين</h4>
+                <h4 class="footer-title">د. نورا حسين الأحمدي</h4>
                 <p class="footer-subtitle">استشارية أمراض النساء والتوليد</p>
-
+                
                 <div class="social-links">
                     <!-- TODO: Replace with actual social media links -->
                     <a href="#" class="social-link" aria-label="تويتر" target="_blank">
@@ -1218,8 +1996,8 @@
                         <i class="bi bi-youtube"></i>
                     </a>
                 </div>
-
-                <p class="footer-copyright">© 2025 د. حلا حسين. جميع الحقوق محفوظة.</p>
+                
+                <p class="footer-copyright">© 2024 د. نورا حسين الأحمدي. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
@@ -1231,7 +2009,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1311,9 +2089,9 @@
 
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                trackEvent('button_click', {
+                trackEvent('button_click', { 
                     text: btn.textContent.trim(),
-                    section: btn.closest('section')?.id
+                    section: btn.closest('section')?.id 
                 });
             });
         });
@@ -1323,6 +2101,328 @@
             console.log('Page loaded successfully');
             trackEvent('page_load', { time: Date.now() });
         });
+
+        // Video Modal Functions
+        function openVideoModal(videoId) {
+            const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+            const videoFrame = document.getElementById('videoFrame');
+            
+            // YouTube embed URL with autoplay
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            videoFrame.src = embedUrl;
+            
+            modal.show();
+            
+            // Track video play event
+            trackEvent('video_play', { videoId: videoId });
+        }
+
+        // Close video modal and stop video
+        document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+            const videoFrame = document.getElementById('videoFrame');
+            videoFrame.src = '';
+        });
+
+        // Video Filter Functions
+        function filterVideos(category) {
+            const videoItems = document.querySelectorAll('.video-item');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Update active filter button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter videos
+            videoItems.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                    }, 100);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Track filter usage
+            trackEvent('video_filter', { category: category });
+        }
+
+        // Load More Videos Function
+        function loadMoreVideos() {
+            // Simulate loading more videos
+            const videosContainer = document.getElementById('videosContainer');
+            const loadMoreBtn = event.target;
+            
+            // Change button text to loading state
+            const originalText = loadMoreBtn.innerHTML;
+            loadMoreBtn.innerHTML = '<i class="bi bi-hourglass-split ms-2"></i>جاري التحميل...';
+            loadMoreBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // In a real application, you would fetch more videos from your API here
+                // For now, we'll just show a message
+                loadMoreBtn.innerHTML = '<i class="bi bi-check-circle ms-2"></i>تم تحميل جميع الفيديوهات';
+                loadMoreBtn.disabled = true;
+                
+                // Track load more action
+                trackEvent('load_more_videos');
+                
+                // Optional: Hide the button after a delay
+                setTimeout(() => {
+                    loadMoreBtn.style.display = 'none';
+                }, 2000);
+            }, 1500);
+        }
+
+        // Add click handlers for video thumbnails
+        document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                if (videoId) {
+                    openVideoModal(videoId);
+                }
+            });
+        });
+
+        // Keyboard navigation for video modal
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('videoModal');
+            if (modal.classList.contains('show') && e.key === 'Escape') {
+                const modalInstance = bootstrap.Modal.getInstance(modal);
+                modalInstance.hide();
+            }
+        });
+
+        // Video thumbnail hover effects
+        document.querySelectorAll('.video-play-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translate(-50%, -50%) scale(1.1)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        // Lazy loading for video thumbnails
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.video-thumbnail img[data-src]').forEach(img => {
+                videoObserver.observe(img);
+            });
+        }
+
+        // Video analytics tracking
+        function trackVideoView(videoId, title) {
+            trackEvent('video_view', {
+                videoId: videoId,
+                title: title,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Enhanced video modal with analytics
+        document.getElementById('videoModal').addEventListener('shown.bs.modal', function () {
+            const videoFrame = document.getElementById('videoFrame');
+            const videoSrc = videoFrame.src;
+            if (videoSrc) {
+                const videoId = videoSrc.match(/embed\/([^?]+)/)?.[1];
+                if (videoId) {
+                    trackVideoView(videoId, 'Video Modal View');
+                }
+            }
+        });
+
+        // Hero image loading handler
+        function handleHeroImageLoad() {
+            const heroImage = document.querySelector('.hero-image');
+            if (!heroImage) return;
+
+            // Add loading class initially
+            heroImage.classList.add('loading');
+
+            // Handle successful image load
+            heroImage.addEventListener('load', function() {
+                this.classList.remove('loading');
+            });
+
+            // Handle image load error with multiple fallbacks
+            heroImage.addEventListener('error', function() {
+                const fallbackImages = [
+                    'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&h=600&fit=crop&crop=face',
+                    'https://images.unsplash.com/photo-1559209172-e8d1b84be81c?w=500&h=600&fit=crop&crop=face',
+                    'https://via.placeholder.com/500x600/667eea/ffffff?text=د.+نورا+الأحمدي'
+                ];
+
+                let currentIndex = 0;
+                const tryNextImage = () => {
+                    if (currentIndex < fallbackImages.length) {
+                        this.src = fallbackImages[currentIndex];
+                        currentIndex++;
+                    } else {
+                        // Final fallback - create a simple colored placeholder
+                        this.style.background = 'var(--primary-gradient)';
+                        this.style.display = 'flex';
+                        this.style.alignItems = 'center';
+                        this.style.justifyContent = 'center';
+                        this.style.color = 'white';
+                        this.style.fontSize = '1.5rem';
+                        this.style.fontWeight = '700';
+                        this.alt = 'د. نورا الأحمدي';
+                        this.classList.remove('loading');
+                    }
+                };
+
+                this.removeEventListener('error', arguments.callee);
+                this.addEventListener('error', tryNextImage);
+                tryNextImage();
+            });
+        }
+
+        // Initialize hero image handling when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            handleHeroImageLoad();
+            initializeEnhancements();
+        });
+
+        // Enhanced website features
+        function initializeEnhancements() {
+            // Loading screen
+            window.addEventListener('load', function() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 1000);
+            });
+
+            // Scroll progress bar
+            const scrollProgress = document.getElementById('scrollProgress');
+            window.addEventListener('scroll', function() {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                scrollProgress.style.width = scrolled + '%';
+            });
+
+            // Enhanced scroll animations
+            const animateElements = document.querySelectorAll('.service-card, .article-card, .stat-card, .video-card, .testimonial-card');
+            animateElements.forEach(el => {
+                el.classList.add('animate-on-scroll');
+            });
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animateElements.forEach(el => {
+                scrollObserver.observe(el);
+            });
+
+            // Enhanced navbar scroll effect
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                    navbar.style.backdropFilter = 'blur(20px)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = 'none';
+                }
+
+                // Hide/show navbar on scroll
+                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Add sparkle effect to buttons
+            document.querySelectorAll('.btn-gradient-primary, .btn-gradient-secondary').forEach(btn => {
+                btn.addEventListener('click', createSparkleEffect);
+            });
+
+            // Enhanced video hover effects
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.03) rotateY(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+                });
+            });
+        }
+
+        // Sparkle effect for buttons
+        function createSparkleEffect(e) {
+            const btn = e.currentTarget;
+            const rect = btn.getBoundingClientRect();
+            const sparkle = document.createElement('div');
+            
+            sparkle.style.position = 'absolute';
+            sparkle.style.left = (e.clientX - rect.left) + 'px';
+            sparkle.style.top = (e.clientY - rect.top) + 'px';
+            sparkle.style.width = '10px';
+            sparkle.style.height = '10px';
+            sparkle.style.background = 'white';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.animation = 'sparkle 0.6s ease-out forwards';
+            
+            btn.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 600);
+        }
+
+        // Add sparkle animation
+        const sparkleCSS = `
+            @keyframes sparkle {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(1.5) rotate(180deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = sparkleCSS;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

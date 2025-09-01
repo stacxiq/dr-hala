@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د. حلا حسين - طبيبة أمراض النساء والتوليد</title>
+    <meta name="description" content="د. حلا حسين، استشارية أمراض النساء والتوليد، خبرة 12 عاماً في العناية الصحية للمرأة">
+
+    <!-- Bootstrap 5 RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "د. حلا حسين",
+      "jobTitle": "طبيبة أمراض النساء والتوليد",
+      "description": "استشارية أمراض النساء والتوليد مع خبرة 12 عاماً",
+      "telephone": "+966501234567",
+      "email": "dr.nora@clinic.sa",
+      "worksFor": {
+        "@type": "MedicalClinic",
+        "name": "عيادة د. حلا حسين",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "طريق الملك عبدالعزيز، حي النخيل",
+          "addressLocality": "الرياض",
+          "addressCountry": "SA"
+        },
+        "telephone": "+966501234567",
+        "openingHours": "Sa-Th 08:00-20:00"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --purple-primary: #667eea;
+            --purple-secondary: #764ba2;
+            --pink-accent: #f5576c;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --bg-light: #f7fafc;
+            --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --card-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--purple-primary) !important;
+        }
+
+        .btn-gradient-primary {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-gradient-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 25px rgba(102, 126, 234, 0.6);
+            color: white;
+        }
+
+        .btn-gradient-secondary {
+            background: var(--secondary-gradient);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-gradient-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 25px rgba(245, 87, 108, 0.6);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="1" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="400" r="150" fill="url(%23a)"/><circle cx="400" cy="800" r="80" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 60px 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 3;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .qualification-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .qualification-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: white;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            background: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .article-image {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .article-content {
+            padding: 30px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .article-tag {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .article-excerpt {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8faff 0%, #f1f5ff 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            margin: 20px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            color: var(--purple-primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary-gradient);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            background: white;
+        }
+
+        .map-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            color: #a0aec0;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .footer-copyright {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: var(--secondary-gradient);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 25px rgba(245, 87, 108, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .service-card,
+            .article-card,
+            .testimonial-card,
+            .contact-card {
+                margin-bottom: 30px;
+            }
+
+            .sticky-cta {
+                bottom: 20px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">د. حلا حسين</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">عن الطبيبة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#articles">المقالات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">الآراء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">التواصل</a>
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-gradient-primary">احجزي موعد</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">د. حلا حسين</h1>
+                    <h2 class="hero-subtitle">طبيبة أمراض النساء والتوليد</h2>
+                    <p class="hero-description">
+                        خبرة 12 عاماً في تقديم أفضل الرعاية الصحية للمرأة
+                        <br>متخصصة في جراحات المناظير والعقم والحمل عالي المخاطر
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-light btn-lg px-4 py-3 fw-bold">
+                            <i class="bi bi-calendar-check ms-2"></i>
+                            احجزي موعد الآن
+                        </a>
+                        <a href="https://wa.me/966501234567" class="btn btn-outline-light btn-lg px-4 py-3 fw-bold" target="_blank">
+                            <i class="bi bi-whatsapp ms-2"></i>
+                            واتساب
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">سنة خبرة</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">مريضة سعيدة</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">1500+</div>
+                        <div class="stat-label">عملية ناجحة</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">خدمة طوارئ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا المتخصصة</h2>
+            <p class="section-subtitle">نقدم مجموعة شاملة من الخدمات الطبية المتقدمة في مجال صحة المرأة</p>
+
+            <div class="row g-4">
+                <!-- TODO: Replace with actual services -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h3 class="service-title">متابعة الحمل</h3>
+                        <p class="service-description">متابعة شاملة للحمل الطبيعي وعالي المخاطر باستخدام أحدث أجهزة الموجات فوق الصوتية</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-scissors"></i>
+                        </div>
+                        <h3 class="service-title">جراحات المناظير</h3>
+                        <p class="service-description">جراحات طفيفة التدخل لعلاج أكياس المبايض، الأورام الليفية، وانتباذ بطانة الرحم</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3 class="service-title">علاج العقم</h3>
+                        <p class="service-description">تشخيص وعلاج أسباب تأخر الإنجاب وتقنيات المساعدة على الإنجاب</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-gender-female"></i>
+                        </div>
+                        <h3 class="service-title">اضطرابات الهرمونات</h3>
+                        <p class="service-description">تشخيص وعلاج متلازمة المبيض متعدد الكيسات واضطرابات الدورة الشهرية</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="service-title">الفحص الوقائي</h3>
+                        <p class="service-description">فحوصات مبكرة للكشف عن سرطان عنق الرحم والثدي والوقاية من الأمراض</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-chat-heart"></i>
+                        </div>
+                        <h3 class="service-title">استشارات طبية</h3>
+                        <p class="service-description">استشارات شاملة حول صحة المرأة في جميع مراحل الحياة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">عن الطبيبة</h2>
+                    <div class="about-content">
+                        <p class="mb-4">
+                            د. حلا حسين هي استشارية أمراض النساء والتوليد مع خبرة تمتد لأكثر من 12 عاماً.
+                            متخصصة في جراحات المناظير، علاج العقم، ومتابعة الحمل عالي المخاطر.
+                        </p>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4 class="h5 fw-bold mb-3" style="color: var(--purple-primary);">المؤهلات العلمية:</h4>
+                                <div class="qualification-item">
+                                    <div class="qualification-icon">
+                                        <i class="bi bi-mortarboard"></i>
+                                    </div>
+                                    <span>بكالوريوس الطب والجراحة - جامعة الملك سعود</span>
+                                </div>
+                                <div class="qualification-item">
+                                    <div class="qualification-icon">
+                                        <i class="bi bi-award"></i>
+                                    </div>
+                                    <span>ماجستير أمراض النساء والتوليد</span>
+                                </div>
+                                <div class="qualification-item">
+                                    <div class="qualification-icon">
+                                        <i class="bi bi-patch-check"></i>
+                                    </div>
+                                    <span>زمالة جراحات المناظير - كندا</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="h5 fw-bold mb-3" style="color: var(--purple-primary);">العضويات المهنية:</h4>
+                                <div class="qualification-item">
+                                    <div class="qualification-icon">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <span>الجمعية السعودية لطب النساء</span>
+                                </div>
+                                <div class="qualification-item">
+                                    <div class="qualification-icon">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <span>الاتحاد الدولي لطب النساء</span>
+                                </div>
+                                <div class="qualification-item">
+                                    <div class="qualification-icon">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <span>الجمعية الأمريكية للخصوبة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <!-- TODO: Replace with actual doctor photo -->
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop"
+                         alt="د. حلا حسين في العيادة"
+                         class="img-fluid rounded-4 shadow-lg"
+                         style="max-height: 500px;"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section" id="articles">
+        <div class="container">
+            <h2 class="section-title">أحدث المقالات الطبية</h2>
+            <p class="section-subtitle">مقالات علمية ونصائح طبية مفيدة حول صحة المرأة</p>
+
+            <div class="row g-4">
+                <!-- TODO: Replace with dynamic article data -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop"
+                             alt="نصائح للحمل الصحي"
+                             class="article-image"
+                             loading="lazy">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-tag">حمل</span>
+                                <span><i class="bi bi-calendar3 ms-1"></i> 15 سبتمبر 2024</span>
+                            </div>
+                            <h3 class="article-title">نصائح مهمة للحمل الصحي</h3>
+                            <p class="article-excerpt">
+                                تعرفي على أهم النصائح والإرشادات للعناية بصحتك وصحة جنينك خلال فترة الحمل...
+                            </p>
+                            <a href="#" class="btn btn-gradient-primary btn-sm">اقرئي المزيد</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=400&h=250&fit=crop"
+                             alt="اضطرابات الهرمونات النسائية"
+                             class="article-image"
+                             loading="lazy">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-tag">هرمونات</span>
+                                <span><i class="bi bi-calendar3 ms-1"></i> 10 سبتمبر 2024</span>
+                            </div>
+                            <h3 class="article-title">اضطرابات الهرمونات النسائية</h3>
+                            <p class="article-excerpt">
+                                تعرفي على أعراض وأسباب اضطرابات الهرمونات وطرق العلاج الحديثة...
+                            </p>
+                            <a href="#" class="btn btn-gradient-primary btn-sm">اقرئي المزيد</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=400&h=250&fit=crop"
+                             alt="أهمية الفحص الوقائي"
+                             class="article-image"
+                             loading="lazy">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-tag">وقاية</span>
+                                <span><i class="bi bi-calendar3 ms-1"></i> 5 سبتمبر 2024</span>
+                            </div>
+                            <h3 class="article-title">أهمية الفحص الوقائي للمرأة</h3>
+                            <p class="article-excerpt">
+                                اكتشفي أهمية الفحوصات الدورية والكشف المبكر للوقاية من الأمراض...
+                            </p>
+                            <a href="#" class="btn btn-gradient-primary btn-sm">اقرئي المزيد</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
+                             alt="التغذية أثناء الحمل"
+                             class="article-image"
+                             loading="lazy">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-tag">تغذية</span>
+                                <span><i class="bi bi-calendar3 ms-1"></i> 28 أغسطس 2024</span>
+                            </div>
+                            <h3 class="article-title">التغذية الصحية للحامل</h3>
+                            <p class="article-excerpt">
+                                دليل شامل للنظام الغذائي المتوازن خلال فترة الحمل لصحة أفضل...
+                            </p>
+                            <a href="#" class="btn btn-gradient-primary btn-sm">اقرئي المزيد</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=250&fit=crop"
+                             alt="الرياضة وصحة المرأة"
+                             class="article-image"
+                             loading="lazy">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-tag">رياضة</span>
+                                <span><i class="bi bi-calendar3 ms-1"></i> 20 أغسطس 2024</span>
+                            </div>
+                            <h3 class="article-title">أهمية الرياضة لصحة المرأة</h3>
+                            <p class="article-excerpt">
+                                تعرفي على فوائد التمارين الرياضية لصحتك الجسدية والنفسية...
+                            </p>
+                            <a href="#" class="btn btn-gradient-primary btn-sm">اقرئي المزيد</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop"
+                             alt="الصحة النفسية للمرأة"
+                             class="article-image"
+                             loading="lazy">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-tag">نفسية</span>
+                                <span><i class="bi bi-calendar3 ms-1"></i> 15 أغسطس 2024</span>
+                            </div>
+                            <h3 class="article-title">الصحة النفسية والعناية بالذات</h3>
+                            <p class="article-excerpt">
+                                نصائح للحفاظ على الصحة النفسية وإدارة الضغوط اليومية بفعالية...
+                            </p>
+                            <a href="#" class="btn btn-gradient-primary btn-sm">اقرئي المزيد</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء المريضات</h2>
+            <p class="section-subtitle">تجارب حقيقية وقصص نجاح من مريضاتنا الكريمات</p>
+
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+                    <!-- TODO: Replace with actual testimonials -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <i class="bi bi-quote testimonial-quote"></i>
+                                    <p class="testimonial-text">
+                                        "د. نورا طبيبة رائعة ومتمكنة جداً. تابعتني طوال فترة الحمل بكل عناية واهتمام.
+                                        أنصح كل امرأة بزيارتها للحصول على أفضل رعاية طبية."
+                                    </p>
+                                    <div class="testimonial-author">أم محمد الأحمدي</div>
+                                    <div class="testimonial-role">أم لثلاثة أطفال، 34 سنة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <i class="bi bi-quote testimonial-quote"></i>
+                                    <p class="testimonial-text">
+                                        "العيادة منظمة والطاقم محترف جداً. د. نورا شرحت لي حالتي بوضوح وأجابت على جميع استفساراتي.
+                                        شعرت بالراحة والثقة من اللحظة الأولى."
+                                    </p>
+                                    <div class="testimonial-author">سارة العتيبي</div>
+                                    <div class="testimonial-role">معلمة، 29 سنة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <i class="bi bi-quote testimonial-quote"></i>
+                                    <p class="testimonial-text">
+                                        "تعاملت مع د. نورا في حالة تأخر إنجاب، وبفضل خبرتها وعلاجها المتطور حملت بعد 8 أشهر.
+                                        الآن أم سعيدة وأشكر الله ثم الدكتورة على كل شيء."
+                                    </p>
+                                    <div class="testimonial-author">هند الزهراني</div>
+                                    <div class="testimonial-role">مهندسة، 32 سنة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <i class="bi bi-quote testimonial-quote"></i>
+                                    <p class="testimonial-text">
+                                        "أجريت عملية منظار مع د. نورا وكانت تجربة ممتازة. التعافي كان سريع وبدون مضاعفات.
+                                        مهارتها في الجراحة واضحة جداً."
+                                    </p>
+                                    <div class="testimonial-author">نوال القحطاني</div>
+                                    <div class="testimonial-role">موظفة، 38 سنة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card">
+                                    <i class="bi bi-quote testimonial-quote"></i>
+                                    <p class="testimonial-text">
+                                        "د. نورا ساعدتني في علاج اضطراب الهرمونات بطريقة علمية ومدروسة.
+                                        الآن صحتي أفضل بكثير وأشعر بتحسن كبير في نوعية حياتي."
+                                    </p>
+                                    <div class="testimonial-author">ريم المطيري</div>
+                                    <div class="testimonial-role">ربة منزل، 27 سنة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">السابق</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">التالي</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title text-white">تواصلي معنا</h2>
+            <p class="section-subtitle text-white opacity-75">نحن هنا لخدمتك ومساعدتك في رحلتك نحو صحة أفضل</p>
+
+            <div class="row g-4 mb-5">
+                <!-- TODO: Replace with actual contact information -->
+                <div class="col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3 class="contact-title">العنوان</h3>
+                        <div class="contact-info">
+                            طريق الملك عبدالعزيز، حي النخيل<br>
+                            الرياض، المملكة العربية السعودية<br>
+                            <small class="opacity-75">مجمع العيادات الطبية - الدور الثالث</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <h3 class="contact-title">الهاتف والواتساب</h3>
+                        <div class="contact-info">
+                            <a href="tel:+966501234567" class="d-block mb-2">
+                                <i class="bi bi-telephone ms-2"></i>
+                                +966 50 123 4567
+                            </a>
+                            <a href="https://wa.me/966501234567" target="_blank" class="d-block mb-2">
+                                <i class="bi bi-whatsapp ms-2"></i>
+                                واتساب: +966 50 123 4567
+                            </a>
+                            <a href="mailto:dr.nora@clinic.sa" class="d-block">
+                                <i class="bi bi-envelope ms-2"></i>
+                                dr.nora@clinic.sa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <h3 class="contact-title">مواعيد العمل</h3>
+                        <div class="contact-info">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>السبت - الأربعاء</span>
+                                <span>8:00 ص - 8:00 م</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>الخميس</span>
+                                <span>8:00 ص - 12:00 م</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>الجمعة</span>
+                                <span>مغلق</span>
+                            </div>
+                            <small class="opacity-75">
+                                <i class="bi bi-info-circle ms-1"></i>
+                                متاحة للحالات الطارئة 24/7
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3 class="h4 mb-3 text-white">احجزي موعدك الآن</h3>
+                <p class="text-white opacity-75 mb-4">اختاري الطريقة الأنسب لك للتواصل معنا</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="tel:+966501234567" class="btn btn-light btn-lg px-4 py-3">
+                        <i class="bi bi-telephone ms-2"></i>
+                        اتصلي للحجز
+                    </a>
+                    <a href="https://wa.me/966501234567?text=مرحباً، أرغب في حجز موعد مع د. نورا"
+                       class="btn btn-gradient-secondary btn-lg px-4 py-3" target="_blank">
+                        <i class="bi bi-whatsapp ms-2"></i>
+                        واتساب
+                    </a>
+                    <a href="mailto:dr.nora@clinic.sa?subject=حجز موعد&body=مرحباً، أرغب في حجز موعد"
+                       class="btn btn-outline-light btn-lg px-4 py-3">
+                        <i class="bi bi-envelope ms-2"></i>
+                        إيميل
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <!-- TODO: Replace with actual Google Maps embed -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.140947756488!2d46.67215331498168!3d24.697861284092615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzUyLjMiTiA0NsKwNDAnMjMuOCJF!5e0!3m2!1sen!2ssa!4v1629876543210!5m2!1sen!2ssa"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                title="موقع عيادة د. حلا حسين">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h4 class="footer-title">د. حلا حسين</h4>
+                <p class="footer-subtitle">استشارية أمراض النساء والتوليد</p>
+
+                <div class="social-links">
+                    <!-- TODO: Replace with actual social media links -->
+                    <a href="#" class="social-link" aria-label="تويتر" target="_blank">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="إنستغرام" target="_blank">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="لينكدإن" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="يوتيوب" target="_blank">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">© 2025 د. حلا حسين. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA -->
+    <a href="https://wa.me/966501234567" class="sticky-cta d-md-none" target="_blank" aria-label="واتساب">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 80;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate elements on scroll
+        document.querySelectorAll('.service-card, .article-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile nav close on link click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                }
+            });
+        });
+
+        // Analytics tracking
+        function trackEvent(eventName, parameters) {
+            console.log('Analytics:', eventName, parameters);
+            // TODO: Implement actual analytics
+        }
+
+        // Track interactions
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', () => trackEvent('phone_call', { phone: link.href }));
+        });
+
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => trackEvent('whatsapp_click', { url: link.href }));
+        });
+
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                trackEvent('button_click', {
+                    text: btn.textContent.trim(),
+                    section: btn.closest('section')?.id
+                });
+            });
+        });
+
+        // Loading performance
+        window.addEventListener('load', function() {
+            console.log('Page loaded successfully');
+            trackEvent('page_load', { time: Date.now() });
+        });
+    </script>
+</body>
+</html>
